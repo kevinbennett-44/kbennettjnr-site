@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>K. Bennett Jnr</title>
+<meta name="description" content="K. Bennett Jnr. Carpenter and joiner covering Canterbury, Folkestone and East Kent. Shop-fits, office furniture, storage and cabinetry.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap">
+<style>
+  /* Layout: one printed sheet, like the poster. Logo, services, contact band, work, footer. */
+  :root {
+    --red: #E33E3D;
+    --cream: #F9F6E3;
+    --navy: #23396B;
+    --ink: #1B1B1B;
+    --rule: #E6E0C4;
+    --display: "Staatliches", "Oswald", "Arial Narrow", Impact, sans-serif;
+    --text: "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--text);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Hero */
+  .hero { padding-block: clamp(32px, 7vw, 72px) clamp(24px, 5vw, 48px); text-align: center; }
+  .hero img { width: min(520px, 88vw); height: auto; display: block; margin: 0 auto; }
+
+  /* Services, set like the poster */
+  .services { padding-block: clamp(16px, 4vw, 40px); }
+  .services .rows {
+    margin: 0 auto;
+    max-width: 900px;
+    display: grid;
+    gap: 0.12em;
+    font-family: var(--display);
+    font-size: clamp(18px, 5.6vw, 58px);
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+  }
+  .services .row { display: flex; justify-content: space-between; align-items: center; }
+  .services .dot {
+    width: 0.16em; height: 0.16em; border-radius: 50%;
+    background: var(--red);
+    flex: none;
+  }
+
+  /* Contact band */
+  .contact { background: var(--navy); color: var(--cream); margin-top: clamp(24px, 5vw, 48px); }
+  .contact .wrap {
+    max-width: 932px; /* 900px content + 16px gutters, matches the services rows */
+    padding-block: clamp(36px, 6vw, 64px);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px 40px;
+    align-items: center;
+  }
+  .contact .lede { margin: 0 0 18px; max-width: 46ch; font-size: 17px; opacity: 0.92; }
+  .contact .big {
+    font-family: var(--display);
+    font-size: clamp(18px, 5.6vw, 58px); /* same as the services rows */
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    text-decoration: none;
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+  }
+  .contact .big:hover { color: var(--red); }
+  .contact .links {
+    display: flex; flex-wrap: wrap; gap: 8px 28px;
+    margin-top: 14px;
+    font-family: var(--display);
+    font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: 0.06em;
+  }
+  .contact .links a { color: var(--red); text-decoration: none; }
+  .contact .links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .badge { width: clamp(130px, 18vw, 190px); height: auto; transform: rotate(-8deg); box-shadow: 0 0 0 4px var(--cream); border-radius: 50%; }
+
+  /* Work */
+  .work { padding-block: clamp(48px, 8vw, 88px) clamp(32px, 6vw, 64px); }
+  .eyebrow {
+    font-family: var(--display);
+    color: var(--red);
+    font-size: clamp(26px, 4vw, 40px);
+    letter-spacing: 0.06em;
+    margin: 0 0 20px;
+    text-align: center;
+  }
+  .gallery {
+    display: flex;
+    gap: clamp(10px, 1.6vw, 16px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: max(16px, env(safe-area-inset-left, 0px));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-bottom: 12px;
+    scrollbar-color: var(--navy) transparent;
+  }
+  .gallery:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; }
+  .gallery img {
+    flex: none;
+    height: clamp(340px, 48vw, 540px);
+    width: auto;
+    max-width: none;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    scroll-snap-align: start;
+    display: block;
+    background: var(--rule);
+  }
+
+  /* Footer */
+  footer { border-top: 2px solid var(--navy); }
+  footer .wrap {
+    padding-block: 24px 32px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+    font-family: var(--display);
+    font-size: 18px;
+    letter-spacing: 0.07em;
+    color: var(--navy);
+  }
+  footer .handle { color: var(--red); text-decoration: none; }
+  footer .copyright { flex-basis: 100%; font-family: var(--text); font-size: 13px; letter-spacing: 0; opacity: 0.8; }
+
+  @media (max-width: 720px) {
+    .contact .wrap { grid-template-columns: 1fr; }
+    .badge { justify-self: start; }
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1 style="margin:0">
+      <img src="img/logo.png" width="800" height="800" alt="K. Bennett Jnr. Carpenter and Joiner. Work hard, make things.">
+    </h1>
+  </div>
+</header>
+
+<section class="services" aria-label="What I do">
+  <div class="wrap">
+    <p class="visually-hidden">Hand-made. Local craftsman. Shop-fits. Office furniture. Storage solutions. Cabinetry.</p>
+    <div class="rows" aria-hidden="true">
+      <div class="row"><span>Hand-made</span><span class="dot"></span><span>Local</span><span>Craftsman</span></div>
+      <div class="row"><span>Shop-fits</span><span class="dot"></span><span>Office</span><span>Furniture</span></div>
+      <div class="row"><span>Storage</span><span>Solutions</span><span class="dot"></span><span>Cabinetry</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" aria-label="Contact">
+  <div class="wrap">
+    <img class="badge" src="img/badge.png" width="283" height="283" alt="Kevin the Carpenter">
+    <div>
+      <p class="lede">The full website is still on the bench. In the meantime, please call or message – I'd love to discuss whatever projects you have in mind.</p>
+      <a class="big" href="tel:+447837365795">07837 365795</a>
+      <div class="links">
+        <a href="https://www.instagram.com/kbennettjnr/" target="_blank" rel="noopener" aria-label="Instagram @kbennettjnr">@kbennettjnr</a>
+        <!-- Add when ready:
+        <a href="https://www.facebook.com/kbennettjnr" target="_blank" rel="noopener">Facebook</a>
+        <a href="mailto:[email]">[email]</a>
+        -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" aria-label="Recent work">
+  <div class="wrap">
+    <h2 class="eyebrow">Recent work</h2>
+    </div>
+  <div class="gallery" tabindex="0" aria-label="Recent work photos, scroll sideways">
+    <img src="img/shop-fit-rail.jpg" alt="OSB clothes rail unit on castors, built for a shop-fit">
+    <img src="img/desk-shelving.jpg" alt="Birch plywood wall shelving with a built-in desk, holding framed photos, cameras and books">
+    <img src="img/pegboard.jpg" alt="Wall-mounted OSB pegboard with painted shelves and wooden pegs">
+    <img loading="lazy" src="img/shelf-plant-detail.jpg" alt="Close-up of a plywood shelf edge showing the layered ply, with a spider plant">
+    <img loading="lazy" src="img/bed-headboard.jpg" alt="Plywood bed with a built-in headboard shelf and LED lighting">
+    <img loading="lazy" src="img/shop-fit-detail.jpg" alt="Close-up of an OSB shelving unit holding books and a hat">
+    <img loading="lazy" src="img/pegboard-angle.jpg" alt="Pegboard shelves seen from an angle, holding books, plants and a vase">
+    <img loading="lazy" src="img/bed-detail.jpg" alt="Detail of the plywood bed frame showing a rounded cut-out">
+    <img loading="lazy" src="img/shelf-edge-detail.jpg" alt="Close-up of a plywood upright and shelf joint, with cameras out of focus behind">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Canterbury, Folkestone &amp; East Kent · Since 2005</span>
+    <a class="handle" href="https://www.instagram.com/kbennettjnr/" target="_blank" rel="noopener">@kbennettjnr</a>
+    <small class="copyright">&copy; 2026 K. Bennett Jnr</small>
+  </div>
+</footer>
+</body>
+</html>
